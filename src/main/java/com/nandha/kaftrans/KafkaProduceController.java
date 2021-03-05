@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.nandha.kaftrans.KafkaProduceException;
-import org.springframework.transaction.annotation.Transactional;
 
 @RestController
 public class KafkaProduceController {
@@ -16,7 +15,6 @@ public class KafkaProduceController {
     @Autowired
     private KafkaTemplate<String, String> template;
 
-    @Transactional
     @GetMapping("/send")
     public String send(
         @RequestParam(defaultValue = "foo") String key, 
