@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.nandha.kaftrans.KafkaProduceException;
+import org.springframework.transaction.annotation.Transactional;
 
 @RestController
 public class KafkaProduceController {
@@ -27,6 +28,19 @@ public class KafkaProduceController {
             }
             return true;
         });
+        return "success";
+    }
+
+    @Transactional
+    @GetMapping("/send2")
+    public String send2(
+        @RequestParam(defaultValue = "foo") String key, 
+        @RequestParam(defaultValue = "bar") String value, 
+        @RequestParam(defaultValue = "false") String fail) throws KafkaProduceException {
+        template.send(TOPIC_NAME,key,value);
+        if(fail.equals("true")){
+            throw new KafkaProduceException("hello world!");
+        }
         return "success";
     }
 }

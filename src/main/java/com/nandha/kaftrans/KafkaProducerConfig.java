@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.transaction.KafkaTransactionManager;
 
 @Component
 public class KafkaProducerConfig {
@@ -31,5 +32,10 @@ public class KafkaProducerConfig {
     @Bean
     public KafkaTemplate<String, String> kafkaTemplate(ProducerFactory<String, String> producerFactory) {
         return new KafkaTemplate<String, String>(producerFactory);
+    }
+
+    @Bean
+    public KafkaTransactionManager<String, String> kafkaTransactionManager(ProducerFactory<String, String> producerFactory) {
+        return new KafkaTransactionManager<String, String>(producerFactory);
     }
 }

@@ -17,13 +17,21 @@ clear && bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic user --cr
 ``` sh
 clear && bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic user
 ```
-### commit a kafka transaction
+### [approach1] commit a kafka transaction
+``` sh
+clear ; echo; echo; curl 'http://localhost:8080/send?key=nandha&value=kumar&fail=false'; echo; echo;
+```
+### [approach1] fail a kafka transaction
 ``` sh
 clear ; echo; echo; curl 'http://localhost:8080/send?key=nandha&value=kumar&fail=true'; echo; echo;
 ```
-### fail a kafka transaction
+### [approach2] commit a kafka transaction
 ``` sh
-clear ; echo; echo; curl 'http://localhost:8080/send?key=nandha&value=kumar&fail=true'; echo; echo;
+clear ; echo; echo; curl 'http://localhost:8080/send2?key=nandha&value=kumar&fail=false'; echo; echo;
+```
+### [approach2] fail a kafka transaction
+``` sh
+clear ; echo; echo; curl 'http://localhost:8080/send2?key=nandha&value=kumar&fail=true'; echo; echo;
 ```
 ### [cleanup] delete topic
 ``` sh
