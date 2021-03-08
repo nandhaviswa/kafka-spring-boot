@@ -12,7 +12,7 @@ import org.springframework.kafka.annotation.EnableKafkaStreams;
 
 @Configuration(proxyBeanMethods = false)
 @EnableKafkaStreams
-public class KafkaStreamsExampleConfiguration {
+public class KafkaStreamsExample {
 
     @Bean
     public KStream<String, String> kStream(StreamsBuilder streamsBuilder) {
