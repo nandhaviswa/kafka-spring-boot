@@ -5,7 +5,6 @@ import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Produced;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafkaStreams;
@@ -20,13 +19,13 @@ public class KafkaStreamsExample {
         myKStreamBuilderFactoryBean.setInfrastructureCustomizer(new NndaInfrastructure());
     }
 
-    /*@Bean
+    @Bean
     public KStream<String, String> kStream(StreamsBuilder streamsBuilder) {
         KStream<String, String> stream = streamsBuilder.stream("user");
         stream.map((k, v) -> {
             return new KeyValue<>(k, v.toUpperCase());
         }).to("user_out", Produced.with(Serdes.String(), Serdes.String()));
         return stream;
-    }*/
+    }
 
 }
