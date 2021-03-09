@@ -1,20 +1,20 @@
 package com.nandha.kaftrans;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.nandha.kaftrans.KafkaProduceException;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class KafkaProduceController {
 
-    static final String TOPIC_NAME = "user";
+    static final String TOPIC_NAME = "tmp";
 
     @Autowired
     private KafkaTemplate<String, String> template;
+
+    @Autowired
+    private KafkaTemplate<String, User> template2;
 
     @GetMapping("/send")
     public String send(
@@ -41,6 +41,12 @@ public class KafkaProduceController {
         if(fail.equals("true")){
             throw new KafkaProduceException("hello world!");
         }
+        return "success";
+    }
+
+    @PostMapping("/send3")
+    public String send3(@RequestParam(defaultValue = "foo") String key, @RequestBody User user){
+        template2.send("user", key, user);
         return "success";
     }
 }
