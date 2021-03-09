@@ -17,10 +17,8 @@ public class NndaInfrastructure implements KafkaStreamsInfrastructureCustomizer 
 
     @Override
     public void configureTopology(Topology topology) {
-
-        System.out.println("\n--------------------------------[ nandha ]---------------------------------\n");
-        System.out.println(topology);
-        System.out.println("\n--------------------------------[ nandha ]---------------------------------\n");
-        
+        topology.addSource("source1","user");
+        topology.addProcessor("processor1",new NndaProcessorSupplier(),"source1");
+        topology.addSink("sink1","user_out","processor1");
     }
 }

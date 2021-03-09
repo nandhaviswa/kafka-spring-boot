@@ -20,13 +20,13 @@ public class KafkaStreamsExample {
         myKStreamBuilderFactoryBean.setInfrastructureCustomizer(new NndaInfrastructure());
     }
 
-    @Bean
+    /*@Bean
     public KStream<String, String> kStream(StreamsBuilder streamsBuilder) {
         KStream<String, String> stream = streamsBuilder.stream("user");
         stream.map((k, v) -> {
             return new KeyValue<>(k, v.toUpperCase());
         }).to("user_out", Produced.with(Serdes.String(), Serdes.String()));
         return stream;
-    }
+    }*/
 
 }
