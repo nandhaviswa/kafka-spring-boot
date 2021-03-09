@@ -3,29 +3,30 @@ package com.nandha.kaftrans;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
+import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Produced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafkaStreams;
 import org.springframework.kafka.config.StreamsBuilderFactoryBean;
-// import org.springframework.kafka.support.serializer.JsonSerde;
+import org.springframework.kafka.support.serializer.JsonSerde;
 
 @Configuration(proxyBeanMethods = false)
 @EnableKafkaStreams
 public class KafkaStreamsExample {
     
     public KafkaStreamsExample(StreamsBuilderFactoryBean myKStreamBuilderFactoryBean){
-        myKStreamBuilderFactoryBean.setInfrastructureCustomizer(new NndaInfrastructure());
+        // myKStreamBuilderFactoryBean.setInfrastructureCustomizer(new NndaInfrastructure());
     }
 
     @Bean
-    public KStream<String, String> kStream(StreamsBuilder streamsBuilder) {
-        KStream<String, String> stream = streamsBuilder.stream("user");
+    public KStream<String, User> kStream(StreamsBuilder streamsBuilder) {
+        KStream<String, User> stream = streamsBuilder.stream("user", Consumed.with(Serdes.String(), new JsonSerde<>(User.class)));
         stream.map((k, v) -> {
-            return new KeyValue<>(k, v.toUpperCase());
-        }).to("user_out", Produced.with(Serdes.String(), Serdes.String()));
+            User user=(User) v;
+            return new KeyValue<>(k,user);
+        }).to("user_out", Produced.with(Serdes.String(), new JsonSerde<>(User.class)));
         return stream;
     }
-
 }

@@ -8,11 +8,9 @@ public class NndaInfrastructure implements KafkaStreamsInfrastructureCustomizer 
 
     @Override
     public void configureBuilder(StreamsBuilder builder) {
-
         System.out.println("\n--------------------------------[ nandha ]---------------------------------\n");
         System.out.println(builder);
-        System.out.println("\n--------------------------------[ nandha ]---------------------------------\n");
-        
+        System.out.println("\n--------------------------------[ nandha ]---------------------------------\n");        
     }
 
     @Override
