@@ -17,16 +17,6 @@ import org.springframework.kafka.support.serializer.JsonSerde;
 public class KafkaStreamsExample {
     
     public KafkaStreamsExample(StreamsBuilderFactoryBean myKStreamBuilderFactoryBean){
-        // myKStreamBuilderFactoryBean.setInfrastructureCustomizer(new NndaInfrastructure());
-    }
-
-    @Bean
-    public KStream<String, User> kStream(StreamsBuilder streamsBuilder) {
-        KStream<String, User> stream = streamsBuilder.stream("user", Consumed.with(Serdes.String(), new JsonSerde<>(User.class)));
-        stream.map((k, v) -> {
-            User user=(User) v;
-            return new KeyValue<>(k,user);
-        }).to("user_out", Produced.with(Serdes.String(), new JsonSerde<>(User.class)));
-        return stream;
+        myKStreamBuilderFactoryBean.setInfrastructureCustomizer(new NndaInfrastructure());
     }
 }
