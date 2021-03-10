@@ -24,9 +24,8 @@ public class NndaInfrastructure implements KafkaStreamsInfrastructureCustomizer 
         topology.addSource("source1", stringDeserializer, thingDeserializer, "user");
         
         topology.addProcessor("processor1",new NndaProcessorSupplier(),"source1");
-        topology.addProcessor("processor2",new NndaProcessorSupplier2(),"source1");
+        topology.addProcessor("processor2",new NndaProcessorSupplier2(),"processor1");
 
-        topology.addSink("sink1","user_out", new StringSerializer(), new JsonSerializer<User>(),"processor1");
-        topology.addSink("sink2","user_out", new StringSerializer(), new JsonSerializer<User>(),"processor2");
+        topology.addSink("sink1","user_out", new StringSerializer(), new JsonSerializer<User>(),"processor2");
     }
 }
