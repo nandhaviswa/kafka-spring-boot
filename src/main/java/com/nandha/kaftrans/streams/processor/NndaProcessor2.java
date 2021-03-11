@@ -2,7 +2,7 @@ package com.nandha.kaftrans.streams.processor;
 
 import com.nandha.kaftrans.model.Person;
 import com.nandha.kaftrans.model.User;
-import com.nandha.kaftrans.mongorepos.UserRepository;
+import com.nandha.kaftrans.mongorepo.UserRepository;
 import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;
 import org.springframework.beans.factory.annotation.Autowired;

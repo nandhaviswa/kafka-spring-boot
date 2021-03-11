@@ -1,4 +1,4 @@
-package com.nandha.kaftrans.mongorepos;
+package com.nandha.kaftrans.mongorepo;
 
 import com.nandha.kaftrans.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
