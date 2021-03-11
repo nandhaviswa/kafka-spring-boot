@@ -20,11 +20,11 @@ public class NndaProcessor implements Processor {
 
     @Override
     public void process(Object o, Object o2) {
-        User user=(User) o2;
+        Person person =(Person) o2;
 
         Profile profile =new Profile();
-        profile.firstname=user.firstname;
-        profile.lastname=user.lastname;
+        profile.firstname= person.firstname;
+        profile.lastname= person.lastname;
         repository.save(profile);
         
         context.forward(o,o2);

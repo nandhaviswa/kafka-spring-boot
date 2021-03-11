@@ -14,7 +14,7 @@ public class KafkaProduceController {
     private KafkaTemplate<String, String> template;
 
     @Autowired
-    private KafkaTemplate<String, User> template2;
+    private KafkaTemplate<String, Person> template2;
 
     @GetMapping("/send")
     public String send(
@@ -45,8 +45,8 @@ public class KafkaProduceController {
     }
 
     @PostMapping("/send3")
-    public String send3(@RequestParam(defaultValue = "foo") String key, @RequestBody User user){
-        template2.send("user", key, user);
+    public String send3(@RequestParam(defaultValue = "foo") String key, @RequestBody Person person){
+        template2.send("person", key, person);
         return "success";
     }
 }

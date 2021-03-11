@@ -11,11 +11,11 @@ bin/kafka-server-start.sh config/server.properties &
 ```
 ### create necessary topic
 ``` sh
-clear && bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic user --create
+clear && bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic person --create
 ```
 ### start kafka consumer
 ``` sh
-clear && bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic user
+clear && bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic person
 ```
 ### [approach1] commit a kafka transaction
 ``` sh
@@ -35,7 +35,7 @@ clear ; echo; echo; curl 'http://localhost:8080/send2?key=nandha&value=kumar&fai
 ```
 ### [cleanup] delete topic
 ``` sh
-clear && bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic user --delete
+clear && bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic person --delete
 ```
 ### [cleanup] stop kafka and zookeeper server
 ``` sh

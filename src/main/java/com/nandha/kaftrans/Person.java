@@ -1,6 +1,6 @@
 package com.nandha.kaftrans;
 
-public class User {
+public class Person {
     public String firstname;
     public String lastname;
     public String username;

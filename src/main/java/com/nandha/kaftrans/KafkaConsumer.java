@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class KafkaConsumer {
 
-    @KafkaListener(topics = "user_out")
+    @KafkaListener(topics = "person_out")
     public void processMessage(String content) {
 
         System.out.println("\n--------------------------------[ nandha ]---------------------------------\n");

@@ -26,17 +26,17 @@ public class KafkaJsonProducerConfig {
     }
 
     /*@Bean*/
-    public ProducerFactory<String, User> producerFactory() {
-        return new DefaultKafkaProducerFactory<String,User>(producerConfigs());
+    public ProducerFactory<String, Person> producerFactory() {
+        return new DefaultKafkaProducerFactory<String, Person>(producerConfigs());
     }
 
     @Bean({"kafkaTemplate2"})
-    public KafkaTemplate<String, User> kafkaTemplate() {
-        return new KafkaTemplate<String, User>(producerFactory());
+    public KafkaTemplate<String, Person> kafkaTemplate() {
+        return new KafkaTemplate<String, Person>(producerFactory());
     }
 
     /*@Bean({"kafkaTransactionManager2"})
-    public KafkaTransactionManager<String, User> kafkaTransactionManager() {
-        return new KafkaTransactionManager<String, User>(producerFactory());
+    public KafkaTransactionManager<String, Person> kafkaTransactionManager() {
+        return new KafkaTransactionManager<String, Person>(producerFactory());
     }*/
 }

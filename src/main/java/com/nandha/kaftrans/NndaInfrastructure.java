@@ -20,13 +20,13 @@ public class NndaInfrastructure implements KafkaStreamsInfrastructureCustomizer 
 
     @Override
     public void configureTopology(Topology topology) {
-        JsonDeserializer<User> thingDeserializer = new JsonDeserializer<>(User.class);
+        JsonDeserializer<Person> thingDeserializer = new JsonDeserializer<>(Person.class);
         StringDeserializer stringDeserializer = new StringDeserializer();
-        topology.addSource("source1", stringDeserializer, thingDeserializer, "user");
+        topology.addSource("source1", stringDeserializer, thingDeserializer, "person");
         
         topology.addProcessor("processor1", processSupplier1,"source1");
         topology.addProcessor("processor2", processSupplier2,"processor1");
 
-        topology.addSink("sink1","user_out", new StringSerializer(), new JsonSerializer<User>(),"processor2");
+        topology.addSink("sink1","person_out", new StringSerializer(), new JsonSerializer<Person>(),"processor2");
     }
 }

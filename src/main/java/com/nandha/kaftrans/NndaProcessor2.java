@@ -16,8 +16,8 @@ public class NndaProcessor2 implements Processor {
 
     @Override
     public void process(Object o, Object o2) {
-        User user=(User) o2;
-        user.age=99;
+        Person person =(Person) o2;
+        person.age=99;
         context.forward(o,o2);
         context.commit();
     }
