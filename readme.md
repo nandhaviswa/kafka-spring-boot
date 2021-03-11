@@ -1,7 +1,7 @@
 ### set up local environment
 
 ``` sh
-git clone -b develop https://vault.sify.net/onesify/poc/streamprocessing.git spring-kafka-trans
+git clone https://github.com/navayuvan/kafka-spring-boot.git spring-kafka-trans
 cd spring-kafka-trans
 ```
 ### start zookeeper and kafka server
