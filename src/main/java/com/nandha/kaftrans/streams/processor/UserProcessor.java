@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserSaveProcessor implements Processor {
+public class UserProcessor implements Processor {
 
     @Autowired
     private UserRepository repository;
