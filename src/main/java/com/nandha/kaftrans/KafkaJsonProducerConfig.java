@@ -20,7 +20,7 @@ public class KafkaJsonProducerConfig {
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        /*props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "hello");*/
+        props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true");
         // See https://kafka.apache.org/documentation/#producerconfigs for more properties
         return props;
     }
