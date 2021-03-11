@@ -2,7 +2,9 @@ package com.nandha.kaftrans;
 
 import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;
+import org.springframework.stereotype.Component;
 
+@Component
 public class NndaProcessor2 implements Processor {
 
     private ProcessorContext context;
