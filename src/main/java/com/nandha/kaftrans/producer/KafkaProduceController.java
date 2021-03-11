@@ -1,5 +1,6 @@
-package com.nandha.kaftrans;
+package com.nandha.kaftrans.producer;
 
+import com.nandha.kaftrans.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.transaction.annotation.Transactional;

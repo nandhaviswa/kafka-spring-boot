@@ -1,4 +1,4 @@
-package com.nandha.kaftrans;
+package com.nandha.kaftrans.consumer;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

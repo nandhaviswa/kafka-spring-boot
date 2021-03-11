@@ -1,4 +1,4 @@
-package com.nandha.kaftrans;
+package com.nandha.kaftrans.model;
 
 public class User {
     public String username;

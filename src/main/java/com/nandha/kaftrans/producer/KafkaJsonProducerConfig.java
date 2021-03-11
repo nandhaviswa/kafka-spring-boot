@@ -1,5 +1,6 @@
-package com.nandha.kaftrans;
+package com.nandha.kaftrans.producer;
 
+import com.nandha.kaftrans.model.Person;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;

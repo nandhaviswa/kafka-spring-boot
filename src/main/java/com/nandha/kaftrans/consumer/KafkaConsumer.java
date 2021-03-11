@@ -1,4 +1,4 @@
-package com.nandha.kaftrans;
+package com.nandha.kaftrans.consumer;
 
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.annotation.KafkaListener;

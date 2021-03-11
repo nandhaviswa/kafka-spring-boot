@@ -1,4 +1,4 @@
-package com.nandha.kaftrans;
+package com.nandha.kaftrans.streams;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafkaStreams;
