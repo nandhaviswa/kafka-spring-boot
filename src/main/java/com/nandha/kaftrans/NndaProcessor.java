@@ -26,7 +26,8 @@ public class NndaProcessor implements Processor {
         profile.firstname= person.firstname;
         profile.lastname= person.lastname;
         repository.save(profile);
-        
+
+        person.age=person.age+11;
         context.forward(o,o2);
         context.commit();
     }
