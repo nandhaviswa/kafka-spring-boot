@@ -8,7 +8,7 @@ import org.springframework.kafka.config.StreamsBuilderFactoryBean;
 @EnableKafkaStreams
 public class KafkaStreamsExample {
     
-    public KafkaStreamsExample(StreamsBuilderFactoryBean myKStreamBuilderFactoryBean, NndaInfrastructure infrastructure){
+    public KafkaStreamsExample(StreamsBuilderFactoryBean myKStreamBuilderFactoryBean, PersonInfrastructure infrastructure){
         myKStreamBuilderFactoryBean.setInfrastructureCustomizer(infrastructure);
     }
 }

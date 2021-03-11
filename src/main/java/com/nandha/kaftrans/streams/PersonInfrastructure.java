@@ -13,7 +13,7 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NndaInfrastructure implements KafkaStreamsInfrastructureCustomizer {
+public class PersonInfrastructure implements KafkaStreamsInfrastructureCustomizer {
 
     @Autowired
     private ProfileProcessorSupplier processSupplier1;
