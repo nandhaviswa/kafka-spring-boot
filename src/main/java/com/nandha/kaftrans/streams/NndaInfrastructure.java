@@ -1,8 +1,8 @@
 package com.nandha.kaftrans.streams;
 
 import com.nandha.kaftrans.model.Person;
-import com.nandha.kaftrans.streams.supplier.NndaProcessorSupplier;
-import com.nandha.kaftrans.streams.supplier.NndaProcessorSupplier2;
+import com.nandha.kaftrans.streams.supplier.ProfileProcessorSupplier;
+import com.nandha.kaftrans.streams.supplier.UserProcessorSupplier;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.apache.kafka.streams.Topology;
@@ -16,10 +16,10 @@ import org.springframework.stereotype.Component;
 public class NndaInfrastructure implements KafkaStreamsInfrastructureCustomizer {
 
     @Autowired
-    private NndaProcessorSupplier processSupplier1;
+    private ProfileProcessorSupplier processSupplier1;
 
     @Autowired
-    private NndaProcessorSupplier2 processSupplier2;
+    private UserProcessorSupplier processSupplier2;
 
     @Override
     public void configureTopology(Topology topology) {

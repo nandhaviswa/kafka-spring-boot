@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NndaProcessorSupplier2 implements ProcessorSupplier {
+public class UserProcessorSupplier implements ProcessorSupplier {
 
     @Autowired
     private UserProcessor processor2;
